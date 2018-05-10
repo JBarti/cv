@@ -140,7 +140,7 @@ html, body{
     font-weight: bolder;
     background-color: #383838;
     padding-left: 9.5%;
-    font-size: 0.8vw;
+    font-size: 90%;
 }
 
 .sidebar__file{
@@ -233,9 +233,9 @@ html, body{
 
 .source__link{
     font-family: Verdana, Tahoma, sans-serif;
-    padding-left: 10%;
-    padding-top: 4%;
-    padding-bottom: 3%;
+    padding-left: 8%;
+    padding-top: 3%;
+    padding-bottom: 2%;
     opacity: 0.9;
     width: 92%;
     overflow: auto;
@@ -246,13 +246,13 @@ html, body{
 }
 
 .link__title{
-    font-size: 115%;
+    font-size: 107%;
     font-weight: 600;
     padding-bottom: 5%;
 }
 
 .link__description{
-    font-size: 115%;
+    font-size: 100%;
 }
 
 .link__visit{
@@ -260,12 +260,18 @@ html, body{
     margin-right: 10%;
     margin-top: 5%;
     background-color: #0f8117;
-    font-size: 115%;
+    font-size: 105%;
     opacity: 1;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 0.8%;
     padding-bottom: 1.5%;
+}
+
+.link__visit:link, .link__visit:visited, .link__visit:active{
+    color:white;
+    text-decoration: none;
+    border: none;
 }
 
 .link__visit:hover{
