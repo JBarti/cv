@@ -1,0 +1,1 @@
+{"version":3,"sources":["manifest.json"],"names":["module","exports"],"mappings":"AAAAA,MAAM,CAACC,OAAP,GAAiB;AACb,aAAW,WADE;AAEb,iBAAe;AAFF,CAAjB","file":"manifest.js","sourceRoot":"../src","sourcesContent":["module.exports = {\n    \"display\": \"landscape\",\n    \"orientation\": \"landscape\"\n};"]}

@@ -1,0 +1,12 @@
+{
+  "name": "JBartiCV",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel --host 0.0.0.0 ./src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
