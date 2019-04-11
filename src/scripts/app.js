@@ -1,6 +1,3 @@
-import { textHoby, textTest } from "./text"
-
-
 screen.orientation.lock('landscape');
 
 window.onload = () => {
