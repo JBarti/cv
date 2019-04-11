@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel --host 0.0.0.0 ./src/index.html",
-    "predeploy": "rm -rf dist && parcel build index.html"
+    "predeploy": "rm -rf dist && parcel build ./src/index.html"
   },
   "keywords": [],
   "author": "",
