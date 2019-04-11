@@ -117,12 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"manifest.json":[function(require,module,exports) {
-module.exports = {
-  "display": "landscape",
-  "orientation": "landscape"
-};
-},{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"src/styles/style.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../assets/file.svg":[["file.ddaf69cf.svg","src/assets/file.svg"],"src/assets/file.svg"],"./../assets/x.png":[["x.dc820bcf.png","src/assets/x.png"],"src/assets/x.png"],"./../assets/python.svg":[["python.540d76d7.svg","src/assets/python.svg"],"src/assets/python.svg"],"./../assets/flask.png":[["flask.a1f48265.png","src/assets/flask.png"],"src/assets/flask.png"],"./../assets/opencv.png":[["opencv.1e67ca83.png","src/assets/opencv.png"],"src/assets/opencv.png"],"./../assets/html.svg":[["html.acaf5c10.svg","src/assets/html.svg"],"src/assets/html.svg"],"./../assets/css.svg":[["css.8c0ab786.svg","src/assets/css.svg"],"src/assets/css.svg"],"./../assets/javascript.svg":[["javascript.0efa80b0.svg","src/assets/javascript.svg"],"src/assets/javascript.svg"],"./../assets/vuejs.svg":[["vuejs.f439330b.svg","src/assets/vuejs.svg"],"src/assets/vuejs.svg"],"./../assets/angular.svg":[["angular.ef35383b.svg","src/assets/angular.svg"],"src/assets/angular.svg"],"./../assets/csharp.svg":[["csharp.3163be58.svg","src/assets/csharp.svg"],"src/assets/csharp.svg"],"./../assets/java.svg":[["java.87e18215.svg","src/assets/java.svg"],"src/assets/java.svg"],"./../assets/cpp.svg":[["cpp.9ca9ee1b.svg","src/assets/cpp.svg"],"src/assets/cpp.svg"],"./../assets/c.svg":[["c.28f82c30.svg","src/assets/c.svg"],"src/assets/c.svg"],"./../assets/arduino.svg":[["arduino.c9f9854a.svg","src/assets/arduino.svg"],"src/assets/arduino.svg"],"./../assets/react.png":[["react.bcb1296f.png","src/assets/react.png"],"src/assets/react.png"],"./../assets/nodejs.png":[["nodejs.1a5a4185.png","src/assets/nodejs.png"],"src/assets/nodejs.png"],"./../assets/express.png":[["express.c2a182aa.png","src/assets/express.png"],"src/assets/express.png"],"./../assets/mongo.png":[["mongo.ba483a71.png","src/assets/mongo.png"],"src/assets/mongo.png"],"./../assets/postgres.png":[["postgres.383dd7a0.png","src/assets/postgres.png"],"src/assets/postgres.png"],"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -325,5 +392,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","manifest.json"], null)
-//# sourceMappingURL=/manifest.js.map
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.0a8160bb.js.map

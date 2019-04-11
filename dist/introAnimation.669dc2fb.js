@@ -117,12 +117,115 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"manifest.json":[function(require,module,exports) {
-module.exports = {
-  "display": "landscape",
-  "orientation": "landscape"
+})({"src/scripts/text.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.textHoby = exports.textTest = void 0;
+var textTest = "Hi, my name is Josip.<br>\nI'm a highscool junior developer, <br>\neager in learning new skills and getting more experience.<br>\nI started off as a robotician <br>\nlearning to appreciate good quality code.<br>\nThat eventually lead to me becoming a web developer";
+exports.textTest = textTest;
+var textHoby = "Although almost all of my projects are made in JavaScript <br>\n    I consider myself a python developer and a linux enthusiast <br>\n\n";
+exports.textHoby = textHoby;
+},{}],"src/scripts/introAnimation.js":[function(require,module,exports) {
+"use strict";
+
+var _text = require("./text");
+
+screen.orientation.lock('landscape');
+
+window.onload = function () {
+  var x = 0;
+  document.getElementsByClassName('tag__open')[0].innerHTML = "";
+  document.getElementsByClassName('tag__close')[0].innerHTML = "";
+  document.getElementsByClassName('intro__text')[0].innerHTML = "";
+
+  function type(word, tag, continueFunc) {
+    var size = word.length;
+    var counter = 0;
+
+    function recursion(word, tag, continueFunc) {
+      var element = document.getElementsByClassName(tag)[0];
+
+      if (counter < size) {
+        element.innerHTML = element.innerHTML.slice(0, -1);
+        element.innerHTML += word[counter];
+        element.innerHTML += '_';
+        setTimeout(function () {
+          recursion(word, tag, continueFunc);
+        }, 70);
+        counter++;
+      } else {
+        element.innerHTML = element.innerHTML.slice(0, -1);
+        if (continueFunc) continueFunc();
+      }
+    }
+
+    recursion(word, tag, continueFunc);
+  }
+
+  type('<coder>', 'tag__open', function () {
+    type('Not Tech Support!', 'intro__text', function () {
+      type('</coder>', 'tag__close');
+    });
+  });
+
+  (function () {
+    var nums = document.getElementsByClassName('text__num')[0];
+
+    for (var i = 0; i <= 34; i++) {
+      nums.innerHTML += "".concat(i, "\n");
+    }
+  })();
+
+  function selectFile(buttonElement, text) {
+    buttonElement.onclick = function () {
+      var sidebarFiles = document.getElementsByClassName("sidebar__file");
+      Array.from(sidebarFiles).map(function (fileElement) {
+        console.table(fileElement);
+        fileElement.classList.remove('file__selected');
+      });
+      document.getElementsByClassName('window__text')[0].innerHTML = text;
+      buttonElement.classList.add('file__selected');
+      document.getElementsByClassName('file__selection')[0].innerHTML = buttonElement.innerHTML;
+    };
+  }
+
+  selectFile(document.getElementsByClassName('file__about')[0], _text.textTest);
+  selectFile(document.getElementsByClassName('file__doing')[0], _text.textHoby);
+
+  var selectTab = function () {
+    var current = null;
+    return function select(tab) {
+      if (current) {
+        current.style.display = 'none';
+      }
+
+      tab.style.display = 'inline';
+      current = tab;
+    };
+  }();
+
+  selectTab(document.getElementsByClassName('sidebar__files')[0]);
+
+  document.getElementsByClassName('icon__files')[0].onclick = function () {
+    selectTab(document.getElementsByClassName('sidebar__files')[0]);
+  };
+
+  document.getElementsByClassName('icon__search')[0].onclick = function () {
+    selectTab(document.getElementsByClassName('sidebar__search')[0]);
+  };
+
+  document.getElementsByClassName('icon__source')[0].onclick = function () {
+    selectTab(document.getElementsByClassName('sidebar__source')[0]);
+  };
+
+  document.getElementsByClassName('icon__debug')[0].onclick = function () {
+    selectTab(document.getElementsByClassName('sidebar__debug')[0]);
+  };
 };
-},{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./text":"src/scripts/text.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -325,5 +428,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","manifest.json"], null)
-//# sourceMappingURL=/manifest.js.map
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","src/scripts/introAnimation.js"], null)
+//# sourceMappingURL=/introAnimation.669dc2fb.js.map
