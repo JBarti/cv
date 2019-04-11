@@ -12,5 +12,3 @@ let textHoby =
     I consider myself a python developer and a linux enthusiast <br>
 
 `
-
-export { textTest, textHoby }

@@ -1,5 +1,3 @@
-screen.orientation.lock('landscape');
-
 window.onload = () => {
 
 
