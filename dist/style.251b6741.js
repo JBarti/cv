@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../assets/file.svg":[["file.f7609f49.svg","assets/file.svg"],"assets/file.svg"],"./../assets/x.png":[["x.25500633.png","assets/x.png"],"assets/x.png"],"./../assets/python.svg":[["python.2109f807.svg","assets/python.svg"],"assets/python.svg"],"./../assets/flask.png":[["flask.fd902fad.png","assets/flask.png"],"assets/flask.png"],"./../assets/opencv.png":[["opencv.86fc160a.png","assets/opencv.png"],"assets/opencv.png"],"./../assets/html.svg":[["html.e824617a.svg","assets/html.svg"],"assets/html.svg"],"./../assets/css.svg":[["css.7076bd8a.svg","assets/css.svg"],"assets/css.svg"],"./../assets/javascript.svg":[["javascript.e40527ee.svg","assets/javascript.svg"],"assets/javascript.svg"],"./../assets/vuejs.svg":[["vuejs.0fc3382d.svg","assets/vuejs.svg"],"assets/vuejs.svg"],"./../assets/angular.svg":[["angular.1d1cc27c.svg","assets/angular.svg"],"assets/angular.svg"],"./../assets/csharp.svg":[["csharp.53635573.svg","assets/csharp.svg"],"assets/csharp.svg"],"./../assets/java.svg":[["java.d7ada52f.svg","assets/java.svg"],"assets/java.svg"],"./../assets/cpp.svg":[["cpp.d62b5375.svg","assets/cpp.svg"],"assets/cpp.svg"],"./../assets/c.svg":[["c.635d0a9d.svg","assets/c.svg"],"assets/c.svg"],"./../assets/arduino.svg":[["arduino.1f06fad1.svg","assets/arduino.svg"],"assets/arduino.svg"],"./../assets/react.png":[["react.a2b06f06.png","assets/react.png"],"assets/react.png"],"./../assets/nodejs.png":[["nodejs.3183db7a.png","assets/nodejs.png"],"assets/nodejs.png"],"./../assets/express.png":[["express.33a158bb.png","assets/express.png"],"assets/express.png"],"./../assets/mongo.png":[["mongo.50780118.png","assets/mongo.png"],"assets/mongo.png"],"./../assets/postgres.png":[["postgres.da53240b.png","assets/postgres.png"],"assets/postgres.png"],"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./../assets/file.svg":[["file.f7609f49.svg","assets/file.svg"],"assets/file.svg"],"./../assets/x.png":[["x.25500633.png","assets/x.png"],"assets/x.png"],"./../assets/python.svg":[["python.2109f807.svg","assets/python.svg"],"assets/python.svg"],"./../assets/flask.png":[["flask.fd902fad.png","assets/flask.png"],"assets/flask.png"],"./../assets/opencv.png":[["opencv.86fc160a.png","assets/opencv.png"],"assets/opencv.png"],"./../assets/html.svg":[["html.e824617a.svg","assets/html.svg"],"assets/html.svg"],"./../assets/css.svg":[["css.7076bd8a.svg","assets/css.svg"],"assets/css.svg"],"./../assets/javascript.svg":[["javascript.e40527ee.svg","assets/javascript.svg"],"assets/javascript.svg"],"./../assets/vuejs.svg":[["vuejs.0fc3382d.svg","assets/vuejs.svg"],"assets/vuejs.svg"],"./../assets/angular.svg":[["angular.1d1cc27c.svg","assets/angular.svg"],"assets/angular.svg"],"./../assets/csharp.svg":[["csharp.53635573.svg","assets/csharp.svg"],"assets/csharp.svg"],"./../assets/java.svg":[["java.d7ada52f.svg","assets/java.svg"],"assets/java.svg"],"./../assets/cpp.svg":[["cpp.d62b5375.svg","assets/cpp.svg"],"assets/cpp.svg"],"./../assets/c.svg":[["c.635d0a9d.svg","assets/c.svg"],"assets/c.svg"],"./../assets/arduino.svg":[["arduino.1f06fad1.svg","assets/arduino.svg"],"assets/arduino.svg"],"./../assets/react.png":[["react.a2b06f06.png","assets/react.png"],"assets/react.png"],"./../assets/nodejs.png":[["nodejs.3183db7a.png","assets/nodejs.png"],"assets/nodejs.png"],"./../assets/express.png":[["express.33a158bb.png","assets/express.png"],"assets/express.png"],"./../assets/mongo.png":[["mongo.50780118.png","assets/mongo.png"],"assets/mongo.png"],"./../assets/postgres.png":[["postgres.da53240b.png","assets/postgres.png"],"assets/postgres.png"],"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39783" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34331" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +392,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
+},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js"], null)
 //# sourceMappingURL=/style.251b6741.js.map
